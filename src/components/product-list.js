@@ -47,10 +47,12 @@ class List extends Component {
 
         {/** Load PSP items */}
         {productItems && productItems.length && productItems}
+        
         {this.props.isLoading &&
-        <div className="spinner-border" role="status">
-          <span className="sr-only">Loading...</span>
-        </div>}
+          <div className="spinner-border" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+          }
       </div >
     );
   }

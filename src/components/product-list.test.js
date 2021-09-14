@@ -1,5 +1,4 @@
 // @ts-nocheck
-import 'jsdom-global/register';
 import React from 'react'
 import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux'
@@ -27,12 +26,3 @@ it('renders correctly', () => {
         .toJSON();
     expect(tree).toMatchSnapshot();
 });
-
-test('check for product list container', () => {
-    const wrapper = mount(
-        <Provider store={store}>
-            <List />
-        </Provider>
-    )
-    expect(wrapper.find('.product-list').length).toBe(1)
-})

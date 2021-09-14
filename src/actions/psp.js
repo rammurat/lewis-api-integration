@@ -62,7 +62,6 @@ export const fetchProducts = () => dispatch => {
       crossdomain: true
     })
       .then(function (response) {
-        console.log(response)
         // update new records
         if (response.data ? response.data  : []) {
           dispatch(updatePSP(response.data))
