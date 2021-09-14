@@ -4,12 +4,14 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Switch } from 'react-router-dom'
 import { Route, Redirect } from 'react-router';
 
+import '../app.scss';
+
 // Load containers
 import PSP from './containers/psp/psp.js';
 
 // Load components
-import Header from './components/header.js';
-import Error from './components/error.js';
+import Header from './components/header/header.js';
+import Error from './components/error/error.js';
 
 // Load store
 import store from './store.js';

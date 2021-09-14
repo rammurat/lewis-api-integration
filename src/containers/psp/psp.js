@@ -1,25 +1,19 @@
 import React from "react";
-import styled from 'styled-components'
 
 // load components
-import ProductList from '../../components/product-list.js'
+import ProductList from '../../components/product-list/product-list.js';
 
-const MainContainerStyle = styled.div`
-  color: #000;
-  font-family: Verdana, Geneva, Tahoma, sans-serif
-`;
+import './psp.scss';
 
 const PSP = () => {
     return (
-        <MainContainerStyle>
-            <div className="container">
-                <div className="row">
-                    <div className="col">
-                        <ProductList />
-                    </div>
+        <div className="container">
+            <div className="row">
+                <div className="col">
+                    <ProductList />
                 </div>
             </div>
-        </MainContainerStyle>
+        </div>
     )
 }
 

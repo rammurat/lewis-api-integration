@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchProducts } from '../actions/psp.js';
-import styled from 'styled-components'
-
-const ProductListStyle = styled.div`
-  padding: 20px 0px;
-  border-bottom: 1px solid #ccc;
-`;
+import { fetchProducts } from '../../actions/psp.js';
 
 class List extends Component {
   constructor(props) {
@@ -25,18 +19,22 @@ class List extends Component {
 
     const productItems = products && products.map(product => (
       <div key={product.productId}>
-        <ProductListStyle>
-          <div className="row">
-                <p><img src="{product.image}" /></p>
-                <p>{product.title}</p>
-                <p>{product.currency}{product.now}</p>
-            </div>
-        </ProductListStyle>
+            <section className="products">
+              <div className="product-card">
+                <div className="product-image">
+                  <img src="{product.image}" />
+                </div>
+                <div className="product-info">
+                  <h5>{product.title}</h5>
+                  <h6>{product.currency}{product.now}</h6>
+                </div>
+              </div>
+            </section>
       </div>
     ));
 
     return (
-      <div className='product-list'>
+      <div className='product-cnt'>
         <div className="row justify-content-end">
             {!!totalProducts &&
               <p><strong>{totalProducts}</strong></p>
@@ -52,8 +50,8 @@ class List extends Component {
           <div className="spinner-border" role="status">
             <span className="sr-only">Loading...</span>
           </div>
-          }
-      </div >
+        }
+      </div>
     );
   }
 }
