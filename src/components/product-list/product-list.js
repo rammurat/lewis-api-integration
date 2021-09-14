@@ -22,11 +22,11 @@ class List extends Component {
             <section className="products">
               <div className="product-card">
                 <div className="product-image">
-                  <img src="{product.image}" />
+                  <img src={product.image} />
                 </div>
                 <div className="product-info">
                   <h5>{product.title}</h5>
-                  <h6>{product.currency}{product.now}</h6>
+                  <h6>{product.currencySign}{product.now}</h6>
                 </div>
               </div>
             </section>

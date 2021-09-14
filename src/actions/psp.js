@@ -9,10 +9,15 @@ import axios from 'axios'
 export const updatePSP = (data) => dispatch => {
   const _data = data.products.map((obj) => {
     const { productId, title, price, image } = obj
-    const { now, currency } = price
+    const { now, currency } = price;
+
+    let currencySign = '$';
+    if(currency === 'GBP') {
+      currencySign = '£';
+    }
 
     return {
-      productId, title, image, now, currency
+      productId, title, image, now, currencySign
     }
   })
 
