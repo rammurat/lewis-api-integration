@@ -1,5 +1,5 @@
 import { PRODUCT_LIST, PRODUCT_TOTAL, PRODUCT_HEADING, PRODUCT_ERROR, IS_NO_ITEMS, IS_LOADING } from './types.js';
-import config from '../app-config'
+import config from '../../app-config'
 
 axios.defaults.baseURL = config.baseUrl;
 

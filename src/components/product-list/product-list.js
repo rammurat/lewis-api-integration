@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchProducts } from '../../actions/psp.js';
+import { fetchProducts } from '../../actions/psp/psp.js';
 import config from '../../app-config'
 class List extends Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class List extends Component {
             }
         </div>
 
-        {/* {this.props.isNoResult && <p className="alert alert-danger" role="alert">{this.props.errMsg}</p>} */}
+        {this.props.isNoResult && <p className="alert alert-danger" role="alert">{this.props.errMsg}</p>}
 
         {/* Load PSP items */}
         <section className="psp-page-cnt__list">

@@ -1,5 +1,4 @@
-import { PRODUCT_LIST, INITIAL_CONFIG, PRODUCT_ERROR, IS_NO_ITEMS, IS_LOADING, PRODUCT_TOTAL, PRODUCT_HEADING } from '../actions/types.js';
-import config from '../app-config.js'
+import { PRODUCT_LIST, INITIAL_CONFIG, PRODUCT_ERROR, IS_NO_ITEMS, IS_LOADING, PRODUCT_TOTAL, PRODUCT_HEADING } from '../../actions/pdp/types.js';
 
 // initial product state
 export const initialState = {
