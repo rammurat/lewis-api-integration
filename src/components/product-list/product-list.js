@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchProducts } from '../../actions/psp.js';
-
+import config from '../../app-config'
 class List extends Component {
   constructor(props) {
     super(props);
@@ -19,13 +19,15 @@ class List extends Component {
 
     const productItems = products && products.map(product => (
       <div className="product-card" key={product.productId}>
-        <div className="product-card__image">
-          <img src={product.image} />
-        </div>
-        <div className="product-card__info">
-          <h3>{product.title}</h3>
-          <h6>{product.currencySign}{product.now}</h6>
-        </div>
+        <a href={config.appUrls.pdp + product.productId}>
+          <div className="product-card__image">
+            <img src={product.image} />
+          </div>
+          <div className="product-card__info">
+            <h3>{product.title}</h3>
+            <h6>{product.currencySign}{product.now}</h6>
+          </div>
+        </a>
       </div>
     ));
 
