@@ -1,4 +1,4 @@
-import { PRODUCT_LIST, PRODUCT_TOTAL, PRODUCT_HEADING, PRODUCT_ERROR, IS_NO_ITEMS, IS_LOADING } from './types.js';
+import { PRODUCT_DETAILS, PRODUCT_ERROR, IS_NO_ITEMS, IS_LOADING } from './types.js';
 import config from '../../app-config'
 
 axios.defaults.baseURL = config.baseUrl;
@@ -6,37 +6,25 @@ axios.defaults.baseURL = config.baseUrl;
 import axios from 'axios'
 
 // reset PSP data on filter change and initial load
-export const updatePSP = (data) => dispatch => {
-  const _data = data.products.map((obj) => {
-    const { productId, title, price, image, displaySpecialOffer } = obj
-    const { now, currency } = price;
+export const updatePDP = (data) => dispatch => {
+  const { productId, title, price, media, displaySpecialOffer, details, additionalServices, code } = data;
+  const _data = {
+    productId,
+    title,
+    price,
+    media,
+    displaySpecialOffer,
+    details,
+    additionalServices,
+    code
+  }
 
-    let currencySign = '$';
-    if(currency === 'GBP') {
-      currencySign = '£';
-    }
-
-    return {
-      productId, title, image, now, currencySign, displaySpecialOffer
-    }
-  })
-
-  const _items = _data && _data.results > 0;
+  const _items = !title;
   const _error = _items ? config.errorMsgs.noList : '';
 
   dispatch({
-    type: PRODUCT_LIST,
+    type: PRODUCT_DETAILS,
     payload: _data
-  })
-
-  dispatch({
-    type: PRODUCT_TOTAL,
-    payload: data.results
-  })
-
-  dispatch({
-    type: PRODUCT_HEADING,
-    payload: data.categoryTitle
   })
 
   dispatch({
@@ -51,15 +39,15 @@ export const updatePSP = (data) => dispatch => {
 
 const clearProducts = () => dispatch => {
   dispatch({
-    type: PRODUCT_LIST,
-    payload: []
+    type: PRODUCT_DETAILS,
+    payload: {}
   })
 }
 
 // fetch latest products based on last filter action/default configuration
-export const fetchProducts = () => dispatch => {
+export const fetchProductDetails = (id) => dispatch => {
   // check for last client call, if it is same return without doing anything
-  const currentCall = `${config.appUrls.search}`
+  const currentCall = `${config.appUrls.pdp + id}`
   if(window && window.lastAjaxCall === currentCall) {
     return true;
   }
@@ -72,14 +60,15 @@ export const fetchProducts = () => dispatch => {
       type: IS_LOADING,
       payload: true
     })
-    window.lastAjaxCall = currentCall
-    axios.get(config.appUrls.search, {
+    window.lastAjaxCall = currentCall;
+
+    axios.get(currentCall, {
       crossdomain: true
     })
       .then(function (response) {
         // update new records
         if (response.data) {
-          dispatch(updatePSP(response.data))
+          dispatch(updatePDP(response.data))
         }
       })
       .finally(()=>{

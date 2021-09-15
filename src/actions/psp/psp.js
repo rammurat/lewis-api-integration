@@ -8,7 +8,7 @@ import axios from 'axios'
 // reset PSP data on filter change and initial load
 export const updatePSP = (data) => dispatch => {
   const _data = data.products.map((obj) => {
-    const { productId, title, price, image, displaySpecialOffer } = obj
+    const { productId, title, price, image } = obj
     const { now, currency } = price;
 
     let currencySign = '$';
@@ -17,7 +17,7 @@ export const updatePSP = (data) => dispatch => {
     }
 
     return {
-      productId, title, image, now, currencySign, displaySpecialOffer
+      productId, title, image, now, currencySign
     }
   })
 
@@ -73,7 +73,7 @@ export const fetchProducts = () => dispatch => {
       payload: true
     })
     window.lastAjaxCall = currentCall
-    axios.get(config.appUrls.search, {
+    axios.get(currentCall, {
       crossdomain: true
     })
       .then(function (response) {

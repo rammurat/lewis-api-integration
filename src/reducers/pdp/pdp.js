@@ -1,10 +1,8 @@
-import { PRODUCT_LIST, INITIAL_CONFIG, PRODUCT_ERROR, IS_NO_ITEMS, IS_LOADING, PRODUCT_TOTAL, PRODUCT_HEADING } from '../../actions/pdp/types.js';
+import { PRODUCT_DETAILS, INITIAL_CONFIG, PRODUCT_ERROR, IS_NO_ITEMS, IS_LOADING } from '../../actions/pdp/types';
 
 // initial product state
 export const initialState = {
-  list: [],
-  categoryTitle: '',
-  totalProducts: 0,
+  productDetails: {},
   initialConfig: {
   },
   isNoResult: false,
@@ -14,22 +12,10 @@ export const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case PRODUCT_LIST:
+    case PRODUCT_DETAILS:
       return {
         ...state,
-        list: action.payload
-      };
-
-    case PRODUCT_TOTAL:
-      return {
-        ...state,
-        totalProducts: action.payload
-      };
-
-    case PRODUCT_HEADING:
-      return {
-        ...state,
-        categoryTitle: action.payload
+        productDetails: action.payload
       };
 
     case INITIAL_CONFIG:

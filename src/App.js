@@ -8,6 +8,7 @@ import '../app.scss';
 
 // Load containers
 import PSP from './containers/psp/psp.js';
+import PDP from './containers/pdp/pdp.js';
 
 // Load components
 import Header from './components/header/header.js';
@@ -28,7 +29,7 @@ class App extends Component {
             {/** Load dynamic components */}
             <Switch>
               <Route path='/' exact component={PSP}></Route>
-              <Route path='/results/:search' component={PSP}></Route>
+              <Route path='/product-details/:id' exact component={PDP}></Route>
               <Route path='/error' component={Error} ></Route>
               <Redirect from='/*' to='/error' />
             </Switch>

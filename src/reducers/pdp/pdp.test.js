@@ -1,7 +1,7 @@
 // @ts-nocheck
 import * as types from '../actions/types'
-import reducer, {initialState} from './psp'
-import config from '../app-config'
+import reducer, {initialState} from './pdp'
+import config from '../../app-config'
 
 describe('actions', () => {
     it('should return the initial state', () => {
@@ -39,13 +39,13 @@ describe('actions', () => {
             id: 11
         }
         const action = {
-            type: types.PRODUCT_LIST,
+            type: types.PRODUCT_DETAILS,
             payload: [data]
         }
 
         const expectedAction = {
             ...initialState,
-            list: [data]
+            productDetails: [data]
         }
         expect(reducer(undefined, action)).toEqual(expectedAction)
     })

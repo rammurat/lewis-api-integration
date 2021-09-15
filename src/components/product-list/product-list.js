@@ -19,7 +19,7 @@ class List extends Component {
 
     const productItems = products && products.map(product => (
       <div className="product-card" key={product.productId}>
-        <a href={config.appUrls.pdp + product.productId}>
+        <a href={'/product-details/' + product.productId}>
           <div className="product-card__image">
             <img src={product.image} />
           </div>

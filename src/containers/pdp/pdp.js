@@ -1,16 +1,16 @@
 import React from "react";
 
 // load components
-import ProductList from '../../components/product-list/product-list.js';
+import ProductDetails from '../../components/product-details/product-details.js';
 
-import './psp.scss';
+import './pdp.scss';
 
-const PSP = () => {
+const PDP = () => {
     return (
-        <div className="app-psp-page">
-            <ProductList />
+        <div className="app-pdp-page">
+            <ProductDetails />
         </div>
     )
 }
 
-export default PSP
+export default PDP
