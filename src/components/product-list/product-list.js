@@ -25,7 +25,7 @@ class List extends Component {
           </div>
           <div className="product-card__info">
             <h3>{product.title}</h3>
-            <h6>{product.currencySign}{product.now}</h6>
+            <h6>{product.currencySign}{product.priceNow}</h6>
           </div>
         </a>
       </div>

@@ -9,6 +9,7 @@ import axios from 'axios'
 export const updatePDP = (data) => dispatch => {
   const { productId, title, price, media, displaySpecialOffer, details, additionalServices, code } = data;
   const { now, currency } = price;
+
   let currencySign = '$';
   if(currency === 'GBP') {
     currencySign = '£';
@@ -22,7 +23,7 @@ export const updatePDP = (data) => dispatch => {
     details,
     additionalServices,
     code,
-    currency
+    currencySign
   }
 
   const _items = !title;

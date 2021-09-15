@@ -34,12 +34,20 @@ class ProductDetails extends Component {
             </div>
           }
 
-          <div className="">
-            <img src={productDetails.media} />
-          </div>
+            <div>
+              <div className="product-image">
+                <img src={productDetails.media} />
+              </div>
 
-          <p>{productDetails.currencySign}{productDetails.now}</p>
+              <div className="product-pricing">
+                <p>{productDetails.currencySign}{productDetails.priceNow}</p>
+              </div>
 
+              <div className="product-description">
+                <p>{productDetails.details ? productDetails.details.productInformation : false}</p>
+              </div>
+            </div>
+          
         </section>
       </div>
     );
