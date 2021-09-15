@@ -1,4 +1,6 @@
 export const PRODUCT_LIST = 'PRODUCT_LIST';
+export const PRODUCT_TOTAL = 'PRODUCT_TOTAL';
+export const PRODUCT_HEADING = 'PRODUCT_HEADING';
 export const INITIAL_CONFIG = 'INITIAL_CONFIG'
 export const IS_NO_ITEMS = 'IS_NO_ITEMS'
 export const PRODUCT_ERROR = 'PRODUCT_ERROR'

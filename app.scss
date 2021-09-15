@@ -1,3 +1,5 @@
+@import './styles/variables';
+
 /*
 * RESET CSS
 */
@@ -45,3 +47,15 @@ table {
 	border-spacing: 0;
 }
 
+
+/*
+* Global CSS
+*/
+body {
+	background: $background;
+	font-family: sans-serif;
+}
+.app-container  {
+	max-width: 1280px;
+	margin: 0 auto;
+}

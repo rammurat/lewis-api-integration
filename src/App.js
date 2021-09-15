@@ -21,7 +21,7 @@ class App extends Component {
     return (
       <Router>
         <Provider store={store}>
-          <div className="App">
+          <div className="app-container">
             {/** Load header */}
             <Header />
 

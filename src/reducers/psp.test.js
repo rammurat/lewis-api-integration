@@ -45,7 +45,7 @@ describe('actions', () => {
 
         const expectedAction = {
             ...initialState,
-            repos: [data]
+            list: [data]
         }
         expect(reducer(undefined, action)).toEqual(expectedAction)
     })

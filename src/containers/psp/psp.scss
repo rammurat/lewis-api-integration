@@ -1,15 +1,29 @@
-.products {
-    display: flex;
-    flex-wrap: wrap;
-}
+.psp-page-cnt {
+    &__heading {
+        text-align: center;
+        font-size: 24px;
+        padding: 24px 0;
+        font-weight: 300;
+    }
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
 
-.product-card {
-    padding: 2%;
-    flex-grow: 1;
-    flex-basis: 16%;
-    display: flex; /* so child elements can use flexbox stuff too! */
-}
-
-.product-image img {
-    max-width: 100%;
+        .product-card {
+            flex-grow: 1;
+            flex-basis: 24%;
+            display: flex;
+            background: #fff;
+            border: 1px solid #d6d6d6;
+            
+            &__image {
+                img {
+                    max-width: 100%;
+                }
+            }
+            &__info {
+                
+            }
+        }
+    }
 }

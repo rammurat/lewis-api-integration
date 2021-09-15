@@ -1,4 +1,4 @@
-import { PRODUCT_LIST, PRODUCT_ERROR, IS_NO_ITEMS, IS_LOADING } from './types.js';
+import { PRODUCT_LIST, PRODUCT_TOTAL, PRODUCT_HEADING, PRODUCT_ERROR, IS_NO_ITEMS, IS_LOADING } from './types.js';
 import config from '../app-config'
 
 axios.defaults.baseURL = config.baseUrl;
@@ -8,7 +8,7 @@ import axios from 'axios'
 // reset PSP data on filter change and initial load
 export const updatePSP = (data) => dispatch => {
   const _data = data.products.map((obj) => {
-    const { productId, title, price, image } = obj
+    const { productId, title, price, image, displaySpecialOffer } = obj
     const { now, currency } = price;
 
     let currencySign = '$';
@@ -17,16 +17,26 @@ export const updatePSP = (data) => dispatch => {
     }
 
     return {
-      productId, title, image, now, currencySign
+      productId, title, image, now, currencySign, displaySpecialOffer
     }
   })
 
-  const _items = _data && !_data.length
-  const _error = _items ? config.errorMsgs.noList : ''
+  const _items = _data && _data.results > 0;
+  const _error = _items ? config.errorMsgs.noList : '';
 
   dispatch({
     type: PRODUCT_LIST,
     payload: _data
+  })
+
+  dispatch({
+    type: PRODUCT_TOTAL,
+    payload: data.results
+  })
+
+  dispatch({
+    type: PRODUCT_HEADING,
+    payload: data.categoryTitle
   })
 
   dispatch({
@@ -68,7 +78,7 @@ export const fetchProducts = () => dispatch => {
     })
       .then(function (response) {
         // update new records
-        if (response.data ? response.data  : []) {
+        if (response.data) {
           dispatch(updatePSP(response.data))
         }
       })
@@ -85,4 +95,3 @@ export const fetchProducts = () => dispatch => {
     console.error(error);
   }
 };
-

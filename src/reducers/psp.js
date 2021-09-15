@@ -1,9 +1,10 @@
-import { PRODUCT_LIST, INITIAL_CONFIG, PRODUCT_ERROR, IS_NO_ITEMS, IS_LOADING } from '../actions/types.js';
+import { PRODUCT_LIST, INITIAL_CONFIG, PRODUCT_ERROR, IS_NO_ITEMS, IS_LOADING, PRODUCT_TOTAL, PRODUCT_HEADING } from '../actions/types.js';
 import config from '../app-config.js'
 
 // initial product state
 export const initialState = {
-  repos: [],
+  list: [],
+  categoryTitle: '',
   totalProducts: 0,
   initialConfig: {
   },
@@ -17,7 +18,19 @@ export default (state = initialState, action) => {
     case PRODUCT_LIST:
       return {
         ...state,
-        repos: action.payload
+        list: action.payload
+      };
+
+    case PRODUCT_TOTAL:
+      return {
+        ...state,
+        totalProducts: action.payload
+      };
+
+    case PRODUCT_HEADING:
+      return {
+        ...state,
+        categoryTitle: action.payload
       };
 
     case INITIAL_CONFIG:
