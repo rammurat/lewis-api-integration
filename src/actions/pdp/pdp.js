@@ -8,15 +8,21 @@ import axios from 'axios'
 // reset PSP data on filter change and initial load
 export const updatePDP = (data) => dispatch => {
   const { productId, title, price, media, displaySpecialOffer, details, additionalServices, code } = data;
+  const { now, currency } = price;
+  let currencySign = '$';
+  if(currency === 'GBP') {
+    currencySign = '£';
+  }
   const _data = {
     productId,
     title,
-    price,
+    priceNow: now,
     media,
     displaySpecialOffer,
     details,
     additionalServices,
-    code
+    code,
+    currency
   }
 
   const _items = !title;

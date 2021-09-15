@@ -39,10 +39,10 @@ class List extends Component {
             }
         </div>
 
-        {this.props.isNoResult && <p className="alert alert-danger" role="alert">{this.props.errMsg}</p>}
-
         {/* Load PSP items */}
         <section className="psp-page-cnt__list">
+          {this.props.isNoResult && <p className="alert alert-danger" role="alert">{this.props.errMsg}</p>}
+
           {this.props.isLoading &&
             <div className="loader" role="status">
               Loading...

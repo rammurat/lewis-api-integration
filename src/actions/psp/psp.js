@@ -17,7 +17,7 @@ export const updatePSP = (data) => dispatch => {
     }
 
     return {
-      productId, title, image, now, currencySign
+      productId, title, image, priceNow: now, currencySign
     }
   })
 

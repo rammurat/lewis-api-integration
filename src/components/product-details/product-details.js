@@ -18,37 +18,28 @@ class ProductDetails extends Component {
   render() {
     const productDetails = this.props.productDetails;
 
-    // const productItems = productDetails && productDetails.map(product => (
-    //   <div className="product-card" key={product.productId}>
-    //     <a href={config.appUrls.pdp + product.productId}>
-    //       <div className="product-card__image">
-    //         <img src={product.image} />
-    //       </div>
-    //       <div className="product-card__info">
-    //         <h3>{product.title}</h3>
-    //         <h6>{product.currencySign}{product.now}</h6>
-    //       </div>
-    //     </a>
-    //   </div>
-    // ));
-
     return (
-      <div className='psp-page-cnt'>
-        <div className="psp-page-cnt__heading">
-            {}
+      <div className='pdp-page-cnt'>
+        <div className="pdp-page-cnt__heading">
+            {productDetails.title}
         </div>
 
-        {this.props.isNoResult && <p className="alert alert-danger" role="alert">{this.props.errMsg}</p>}
+        {/* Load PDP items */}
+        <section className="pdp-page-cnt__details">
+          {this.props.isNoResult && <p className="alert alert-danger" role="alert">{this.props.errMsg}</p>}
 
-        {/* Load PSP items */}
-        <section className="psp-page-cnt__list">
           {this.props.isLoading &&
             <div className="loader" role="status">
               Loading...
             </div>
           }
 
-          {productDetails ? productDetails : false}
+          <div className="">
+            <img src={productDetails.media} />
+          </div>
+
+          <p>{productDetails.currencySign}{productDetails.now}</p>
+
         </section>
       </div>
     );
@@ -57,17 +48,17 @@ class ProductDetails extends Component {
 
 ProductDetails.propTypes = {
   fetchProductDetails: PropTypes.func.isRequired,
-  productDetails: PropTypes.array,
+  productDetails: PropTypes.object,
   errMsg: PropTypes.string,
   isNoResult: PropTypes.bool,
   isLoading: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
-  isNoResult: state.psp.isNoResult,
-  errMsg: state.psp.errMsg,
-  productDetails: state.psp.productDetails,
-  isLoading: state.psp.isLoading
+  isNoResult: state.pdp.isNoResult,
+  errMsg: state.pdp.errMsg,
+  productDetails: state.pdp.productDetails,
+  isLoading: state.pdp.isLoading
 });
 
 export default connect(
