@@ -23,8 +23,7 @@ class List extends Component {
           <img src={product.image} />
         </div>
         <div className="product-card__info">
-          <h5>{product.title}</h5>
-          <p>{product.displaySpecialOffer}</p>
+          <h3>{product.title}</h3>
           <h6>{product.currencySign}{product.now}</h6>
         </div>
       </div>
@@ -40,16 +39,16 @@ class List extends Component {
 
         {/* {this.props.isNoResult && <p className="alert alert-danger" role="alert">{this.props.errMsg}</p>} */}
 
-        {/** Load PSP items */}
+        {/* Load PSP items */}
         <section className="psp-page-cnt__list">
-          {productItems && productItems.length && productItems}
+          {this.props.isLoading &&
+            <div className="loader" role="status">
+              Loading...
+            </div>
+          }
+
+          {productItems && productItems.length ? productItems : false}
         </section>
-        
-        {this.props.isLoading &&
-          <div className="spinner-border" role="status">
-            <span className="sr-only">Loading...</span>
-          </div>
-        }
       </div>
     );
   }
