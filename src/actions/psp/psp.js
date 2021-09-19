@@ -5,7 +5,6 @@ axios.defaults.baseURL = config.baseUrl;
 
 import axios from 'axios'
 
-// reset PSP data on filter change and initial load
 export const updatePSP = (data) => dispatch => {
   const _data = data.products.map((obj) => {
     const { productId, title, price, image } = obj
@@ -56,7 +55,6 @@ const clearProducts = () => dispatch => {
   })
 }
 
-// fetch latest products based on last filter action/default configuration
 export const fetchProducts = () => dispatch => {
   // check for last client call, if it is same return without doing anything
   const currentCall = `${config.appUrls.search}`

@@ -5,7 +5,6 @@ axios.defaults.baseURL = config.baseUrl;
 
 import axios from 'axios'
 
-// reset PSP data on filter change and initial load
 export const updatePDP = (data) => dispatch => {
   const { productId, title, price, media, displaySpecialOffer, details, additionalServices, code } = data;
   const { now, currency } = price;
@@ -51,7 +50,6 @@ const clearProducts = () => dispatch => {
   })
 }
 
-// fetch latest products based on last filter action/default configuration
 export const fetchProductDetails = (id) => dispatch => {
   // check for last client call, if it is same return without doing anything
   const currentCall = `${config.appUrls.pdp + id}`

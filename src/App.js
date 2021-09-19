@@ -11,7 +11,6 @@ import PSP from './containers/psp/psp.js';
 import PDP from './containers/pdp/pdp.js';
 
 // Load components
-import Header from './components/header/header.js';
 import Error from './components/error/error.js';
 
 // Load store
