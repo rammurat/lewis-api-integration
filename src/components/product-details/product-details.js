@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchProductDetails } from '../../actions/pdp/pdp.js';
-import config from '../../app-config'
+import Carousel from '../carousel/carousel'
+
 class ProductDetails extends Component {
   constructor(props) {
     super(props);
@@ -31,6 +32,7 @@ class ProductDetails extends Component {
         <div className="value">{specs.value}</div>
       </div>
     ));
+    const images = (productDetails.media && productDetails.media.images.urls) || [];
 
     const _guaranteeServices = guaranteeServices.length && guaranteeServices.map((specs, index) => (
       <p key={index}>{specs}</p>
@@ -55,8 +57,9 @@ class ProductDetails extends Component {
               Loading...
             </div>
           }
+          
           <div className="product-image">
-            <img src={image} />
+            <Carousel slides={images} />
           </div>
 
           <div className="product-pricing">
