@@ -22,7 +22,7 @@ exports[`validate HTML 1`] = `
     }
   }
 >
-  <Connect(List)
+  <Connect(ProductDetails)
     isNoResult={false}
     products={
       Object {

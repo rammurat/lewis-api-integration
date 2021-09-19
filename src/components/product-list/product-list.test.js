@@ -3,33 +3,27 @@ import React from 'react'
 import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux'
 import List from './product-list'
+import toJson from 'enzyme-to-json'
 
-import Enzyme, { mount } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 
 const store = {
-    subscribe: () => { },
-    dispatch: () => { },
-    getState: () => ({
-        state: {
-            psp: {
-                list: [],
-                categoryTitle: '',
-                totalProducts: 0,
-                initialConfig: {
-                },
-                isNoResult: false,
-                errMsg: '',
-                isLoading: false
-            }
-        }
-    })
+    subscribe: () => {},
+    dispatch: () => {},
+    getState: () => {}
 }
 
-it('renders correctly', () => {
-    const tree = renderer
-        .create(<Provider store={store}><List /></Provider>)
-        .toJSON();
-    expect(tree).toMatchSnapshot();
+test('validate HTML', () => {
+    const props = {
+        products: {
+            initialConfig: {
+                isLoading: false
+            }
+        },
+        isNoResult: false
+    }
+    const wrapper = shallow(<Provider store={store}><List {...props} /></Provider>)
+    expect(toJson(wrapper)).toMatchSnapshot()
 });
