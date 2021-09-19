@@ -15,7 +15,8 @@ const store = {
         products: {
             initialConfig: {
             }
-        }
+        },
+        isNoResult: false
     })
 }
 

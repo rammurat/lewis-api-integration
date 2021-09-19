@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="psp-page-cnt"
+>
+  <div
+    className="psp-page-cnt__heading"
+  />
+  <section
+    className="psp-page-cnt__list"
+  />
+</div>
+`;

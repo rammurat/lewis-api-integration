@@ -12,8 +12,15 @@ const store = {
     subscribe: () => { },
     dispatch: () => { },
     getState: () => ({
-        products: {
-            initialConfig: {
+        state: {
+            psp: {
+                list: [],
+                categoryTitle: '',
+                totalProducts: 0,
+                initialConfig: {
+                },
+                isNoResult: false,
+                errMsg: '',
                 isLoading: false
             }
         }

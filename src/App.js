@@ -22,9 +22,6 @@ class App extends Component {
       <Router>
         <Provider store={store}>
           <div className="app-container">
-            {/** Load header */}
-            <Header />
-
             {/** Load dynamic components */}
             <Switch>
               <Route path='/' exact component={PSP}></Route>

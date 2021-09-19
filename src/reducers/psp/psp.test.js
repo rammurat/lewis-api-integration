@@ -1,7 +1,7 @@
 // @ts-nocheck
-import * as types from '../../psp/types'
-import reducer, {initialState} from './psp'
-import config from '../../app-config'
+import * as types from '../../actions/psp/types';
+import reducer, {initialState} from './psp';
+import config from '../../app-config';
 
 describe('actions', () => {
     it('should return the initial state', () => {

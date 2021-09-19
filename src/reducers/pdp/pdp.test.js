@@ -1,5 +1,5 @@
 // @ts-nocheck
-import * as types from '../actions/types'
+import * as types from '../../actions/pdp/types';
 import reducer, {initialState} from './pdp'
 import config from '../../app-config'
 

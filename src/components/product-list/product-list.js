@@ -13,9 +13,13 @@ class List extends Component {
     this.props.fetchProducts();
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return (nextProps.categoryTitle !== this.props.categoryTitle) || (nextProps.isLoading !== this.props.isLoading);
+  }
+
   render() {
-    const totalProducts = this.props.totalProducts
-    const products = this.props.products
+    const totalProducts = this.props.totalProducts;
+    const products = this.props.products;
 
     const productItems = products && products.map(product => (
       <div className="product-card" key={product.productId}>

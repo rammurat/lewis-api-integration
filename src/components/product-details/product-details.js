@@ -14,6 +14,10 @@ class ProductDetails extends Component {
     this.props.fetchProductDetails(productId);
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return (nextProps.productDetails !== this.props.productDetails) || (nextProps.isLoading !== this.props.isLoading);
+  }
+
   render() {
     const productDetails = this.props.productDetails;
     const image = '\/\/johnlewis.scene7.com\/is\/image\/JohnLewis\/239968644?';
