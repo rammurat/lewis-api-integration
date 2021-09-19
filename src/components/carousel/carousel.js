@@ -1,29 +1,24 @@
 import React, { Component } from 'react';
 import '../../../styles/carousel.scss';
 
-class CarouselIndicator extends Component {
-  render() {
-    return (
-      <li>
-        <a className={this.props.index === this.props.activeIndex ? "carousel-indicator carousel-indicator--active" : "carousel-indicator"}
-          onClick={this.props.onClick}
-        />
-      </li>                  
-    );
-  }
+function CarouselIndicator(props) {
+  return (
+    <li>
+      <a className={props.index === props.activeIndex ? "carousel-indicator carousel-indicator--active" : "carousel-indicator"}
+        onClick={props.onClick}
+      />
+    </li>                  
+  );
 }
 
-class CarouselSlide extends Component {
-  render() {
-    return (
-      <li
-        className={this.props.index === this.props.activeIndex ? "carousel-slide carousel-slide--active" : "carousel-slide"}
-        >
-
-        <img src={this.props.slide} className="carousel-slide-content" />
-      </li>
-    );
-  }
+function CarouselSlide(props) {
+  return (
+    <li
+      className={props.index === props.activeIndex ? "carousel-slide carousel-slide--active" : "carousel-slide"}
+      >
+      <img src={props.slide} className="carousel-slide-content" />
+    </li>
+  );
 }
 
 class Carousel extends Component {
@@ -48,7 +43,7 @@ class Carousel extends Component {
       <div className="carousel">
         <ul className = "carousel-slides"> 
           {
-            this.props.slides.map((slide, index) =>
+            this.props.slides && this.props.slides.map((slide, index) =>
               <CarouselSlide
                 key={index}
                 index={index}
@@ -60,7 +55,7 @@ class Carousel extends Component {
                 
         <ul className="carousel-indicators">
           {
-            this.props.slides.map((slide, index) =>
+            this.props.slides && this.props.slides.map((slide, index) =>
               <CarouselIndicator
                 key={index}
                 index={index}
