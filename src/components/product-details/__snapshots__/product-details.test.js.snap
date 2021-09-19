@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`validate HTML 1`] = `
+exports[`Error page snapshot 1`] = `
 <ContextProvider
   value={
     Object {
@@ -23,14 +23,78 @@ exports[`validate HTML 1`] = `
   }
 >
   <Connect(ProductDetails)
+    errMsg="There is an error from server"
+    isLoading={false}
+    isNoResult={true}
+    productDetails={Array []}
+  />
+</ContextProvider>
+`;
+
+exports[`Loading product snapshot 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Object {
+        "addNestedSub": [Function],
+        "getListeners": [Function],
+        "handleChangeWrapper": [Function],
+        "isSubscribed": [Function],
+        "notifyNestedSubs": [Function],
+        "onStateChange": [Function],
+        "trySubscribe": [Function],
+        "tryUnsubscribe": [Function],
+      },
+    }
+  }
+>
+  <Connect(ProductDetails)
+    errMsg=""
+    isLoading={false}
     isNoResult={false}
-    products={
+    productDetails={
       Object {
-        "initialConfig": Object {
-          "isLoading": false,
-        },
+        "currencySign": "£",
+        "priceNow": "20",
+        "title": "product A",
       }
     }
+  />
+</ContextProvider>
+`;
+
+exports[`Loading state snapshot 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Object {
+        "addNestedSub": [Function],
+        "getListeners": [Function],
+        "handleChangeWrapper": [Function],
+        "isSubscribed": [Function],
+        "notifyNestedSubs": [Function],
+        "onStateChange": [Function],
+        "trySubscribe": [Function],
+        "tryUnsubscribe": [Function],
+      },
+    }
+  }
+>
+  <Connect(ProductDetails)
+    errMsg=""
+    isLoading={true}
+    isNoResult={false}
+    productDetails={Array []}
   />
 </ContextProvider>
 `;

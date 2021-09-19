@@ -15,14 +15,52 @@ const store = {
     getState: () => {}
 }
 
-test('validate HTML', () => {
+test('Loading products snapshot', () => {
     const props = {
-        products: {
-            initialConfig: {
-                isLoading: false
-            }
-        },
-        isNoResult: false
+        products: [{
+            productId: 1,
+            image: './cat.jpeg',
+            title: 'currencySign',
+            currencySign: '£',
+            priceNow: '20'
+        }, {
+            productId: 2,
+            image: './mouse.jpeg',
+            title: 'currencySign',
+            currencySign: '£',
+            priceNow: '40'
+        }],
+        errMsg: '',
+        isNoResult: false,
+        isLoading: false,
+        totalProducts: 1,
+        categoryTitle: "Title 1"
+    }
+    const wrapper = shallow(<Provider store={store}><List {...props} /></Provider>)
+    expect(toJson(wrapper)).toMatchSnapshot()
+});
+
+test('Loading state snapshot', () => {
+    const props = {
+        products: [],
+        errMsg: '',
+        isNoResult: false,
+        isLoading: true,
+        totalProducts: 0,
+        categoryTitle: ""
+    }
+    const wrapper = shallow(<Provider store={store}><List {...props} /></Provider>)
+    expect(toJson(wrapper)).toMatchSnapshot()
+});
+
+test('Error page snapshot', () => {
+    const props = {
+        products: [],
+        errMsg: 'There is an error from server',
+        isNoResult: true,
+        isLoading: false,
+        totalProducts: 0,
+        categoryTitle: ""
     }
     const wrapper = shallow(<Provider store={store}><List {...props} /></Provider>)
     expect(toJson(wrapper)).toMatchSnapshot()

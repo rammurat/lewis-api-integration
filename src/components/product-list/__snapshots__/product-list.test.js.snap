@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`validate HTML 1`] = `
+exports[`Error page snapshot 1`] = `
 <ContextProvider
   value={
     Object {
@@ -23,14 +23,95 @@ exports[`validate HTML 1`] = `
   }
 >
   <Connect(List)
+    categoryTitle=""
+    errMsg="There is an error from server"
+    isLoading={false}
+    isNoResult={true}
+    products={Array []}
+    totalProducts={0}
+  />
+</ContextProvider>
+`;
+
+exports[`Loading products snapshot 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Object {
+        "addNestedSub": [Function],
+        "getListeners": [Function],
+        "handleChangeWrapper": [Function],
+        "isSubscribed": [Function],
+        "notifyNestedSubs": [Function],
+        "onStateChange": [Function],
+        "trySubscribe": [Function],
+        "tryUnsubscribe": [Function],
+      },
+    }
+  }
+>
+  <Connect(List)
+    categoryTitle="Title 1"
+    errMsg=""
+    isLoading={false}
     isNoResult={false}
     products={
-      Object {
-        "initialConfig": Object {
-          "isLoading": false,
+      Array [
+        Object {
+          "currencySign": "£",
+          "image": "./cat.jpeg",
+          "priceNow": "20",
+          "productId": 1,
+          "title": "currencySign",
         },
-      }
+        Object {
+          "currencySign": "£",
+          "image": "./mouse.jpeg",
+          "priceNow": "40",
+          "productId": 2,
+          "title": "currencySign",
+        },
+      ]
     }
+    totalProducts={1}
+  />
+</ContextProvider>
+`;
+
+exports[`Loading state snapshot 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Object {
+        "addNestedSub": [Function],
+        "getListeners": [Function],
+        "handleChangeWrapper": [Function],
+        "isSubscribed": [Function],
+        "notifyNestedSubs": [Function],
+        "onStateChange": [Function],
+        "trySubscribe": [Function],
+        "tryUnsubscribe": [Function],
+      },
+    }
+  }
+>
+  <Connect(List)
+    categoryTitle=""
+    errMsg=""
+    isLoading={true}
+    isNoResult={false}
+    products={Array []}
+    totalProducts={0}
   />
 </ContextProvider>
 `;

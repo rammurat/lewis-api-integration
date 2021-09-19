@@ -15,14 +15,38 @@ const store = {
     getState: () => {}
 }
 
-test('validate HTML', () => {
+test('Loading product snapshot', () => {
     const props = {
-        products: {
-            initialConfig: {
-                isLoading: false
-            }
+        productDetails: {
+            title: 'product A',
+            currencySign: '£',
+            priceNow: '20'
         },
-        isNoResult: false
+        errMsg: '',
+        isNoResult: false,
+        isLoading: false,
+    }
+    const wrapper = shallow(<Provider store={store}><Details {...props} /></Provider>)
+    expect(toJson(wrapper)).toMatchSnapshot()
+});
+
+test('Loading state snapshot', () => {
+    const props = {
+        productDetails: [],
+        errMsg: '',
+        isNoResult: false,
+        isLoading: true
+    }
+    const wrapper = shallow(<Provider store={store}><Details {...props} /></Provider>)
+    expect(toJson(wrapper)).toMatchSnapshot()
+});
+
+test('Error page snapshot', () => {
+    const props = {
+        productDetails: [],
+        errMsg: 'There is an error from server',
+        isNoResult: true,
+        isLoading: false
     }
     const wrapper = shallow(<Provider store={store}><Details {...props} /></Provider>)
     expect(toJson(wrapper)).toMatchSnapshot()
