@@ -1,10 +1,12 @@
+@import './styles/variables';
+
 .psp-page-cnt {
     &__heading {
         text-align: center;
-        font-size: 24px;
+        font-size: $font-24;
         padding: 24px 0;
         font-weight: 300;
-        color: rgb(116, 109, 109);
+        color: $heading-color;
     }
 
     &__list {
@@ -18,7 +20,7 @@
             padding: 2%;
             display: flex;
             flex-direction: column;
-            background: #fff;
+            background: $white;
             box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
 
             a {
@@ -44,7 +46,7 @@
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: $_768) {
     .psp-page-cnt {    
         &__list {    
             .product-card {
@@ -55,7 +57,7 @@
     }    
 }
 
-@media (min-width: 1024px) {
+@media (min-width: $_1024) {
     .psp-page-cnt {    
         &__list {    
             .product-card {

@@ -23,6 +23,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -57,14 +58,14 @@ body {
 }
 
 .app-container  {
-	max-width: 1280px;
+	max-width: $_1280;
 	margin: 0 auto;
 }
 
 .loader,
 .loader:before,
 .loader:after {
-  background: #ccc;
+  background: $grey;
   -webkit-animation: load1 1s infinite ease-in-out;
   animation: load1 1s infinite ease-in-out;
   width: 1em;
@@ -72,11 +73,11 @@ body {
 }
 
 .loader {
-  color: #ccc;
+  color: $grey;
   text-indent: -9999em;
   margin: 88px auto;
   position: relative;
-  font-size: 11px;
+  font-size: $font-12;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);

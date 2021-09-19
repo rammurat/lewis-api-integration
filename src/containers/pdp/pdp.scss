@@ -1,24 +1,26 @@
+@import './styles/variables';
+
 .app-pdp-page {
     .pdp-page-cnt  {
         &__heading {
             text-align: center;
-            font-size: 16px;
+            font-size: $font-16;
             padding: 24px 0;
             font-weight: 300;
-            color: rgb(116, 109, 109);
-            background: #fff;
+            color: $heading-color;
+            background: $white;
         }
 
         &__details {
             font-weight: 100;
-            color: rgb(116, 109, 109);
+            color: $heading-color;
             display: flex;
             flex-direction: column;
 
             .product-image {
-                background: #fff;
+                background: $white;
                 margin-bottom: 10px;
-                border-bottom: 1px solid #ccc;
+                border-bottom: 1px solid $grey;
 
                 img {
                     max-width: 100%;
@@ -26,16 +28,16 @@
             }
 
             .product-pricing {
-                border-top: 1px solid #ccc;
-                background: #fff;
+                border-top: 1px solid $grey;
+                background: $white;
                 padding: 20px 30px;
 
-                color: #000;
+                color: $black;
 
                 &__price {
                     line-height: 34px;
                     font-weight: bold;
-                    font-size: 20px;                    
+                    font-size: $font-20;                    
                 }
 
                 p {
@@ -44,9 +46,9 @@
             }
 
             .product-information {
-                background: #fff;
+                background: $white;
                 padding: 15px 30px;
-                font-size: 14px;
+                font-size: $font-14;
 
                 &__product-html {
                     p {
@@ -56,18 +58,18 @@
                 }
 
                 h3 {
-                    font-size: 18px;
+                    font-size: $font-18;
                     line-height: 34px;
                 }
 
                 h4 {
-                    font-size: 14px;
+                    font-size: $font-14;
                     line-height: 24px;
                 }
 
                 &__specs-heading{
                     padding: 10px 0;
-                    border: 1px solid #ccc;
+                    border: 1px solid $grey;
                     border-right: none;
                     border-left: none;
                     margin: 10px 0;
@@ -78,7 +80,7 @@
                     flex-direction: row;
                     justify-content: space-between;
                     padding: 10px 0;
-                    border-bottom: 1px solid #cccc;
+                    border-bottom: 1px solid $grey;
 
                     .key {
                         width: 50%;
@@ -94,35 +96,29 @@
                     border-bottom: none;
                 }
             }
-
-            .product-specification {
-                &__item {
-
-                }
-            }
         }
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: $_768) {
     .app-pdp-page {
         .pdp-page-cnt  {
             &__heading {
-                background: #f9f9f9;
-                border-bottom: 1px solid #ccc;
+                background: $heading-bg;
+                border-bottom: 1px solid $grey;
             }
 
             &__details {
                 flex-direction: row;
                 flex-wrap: wrap;
-                background: #fff;
+                background: $white;
 
                 .product-image {
                     width: 65%;
                     margin-bottom: 0;
                     border-bottom: none;
                     order: 1;
-                    border-right: 1px solid #ccc;
+                    border-right: 1px solid $grey;
                 }
                 .product-pricing {
                     flex-basis: calc(35% - 61px);
