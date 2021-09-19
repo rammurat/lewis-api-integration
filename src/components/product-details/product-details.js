@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchProductDetails } from '../../actions/pdp/pdp.js';
 import config from '../../app-config'
-
 class ProductDetails extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +16,27 @@ class ProductDetails extends Component {
 
   render() {
     const productDetails = this.props.productDetails;
+    const image = '\/\/johnlewis.scene7.com\/is\/image\/JohnLewis\/239968644?';
+    const  productSpecs = this.props.productDetails.details && this.props.productDetails.details.features;
+    const features = productSpecs && productSpecs[0].attributes || []
+    const guaranteeServices = (productDetails.additionalServices && productDetails.additionalServices.includedServices) || [];
+
+    const _productSpecs = features && features.map((specs,index) => (
+      <div className="item" key={index}>
+        <div className="key">{specs.name}</div>
+        <div className="value">{specs.value}</div>
+      </div>
+    ));
+
+    const _guaranteeServices = guaranteeServices.length && guaranteeServices.map((specs, index) => (
+      <p key={index}>{specs}</p>
+    ));
+
+    function createMarkup(_html) {
+      return {__html: _html};
+    }
+
+    console.log(guaranteeServices);
 
     return (
       <div className='pdp-page-cnt'>
@@ -33,21 +53,25 @@ class ProductDetails extends Component {
               Loading...
             </div>
           }
+          <div className="product-image">
+            <img src={image} />
+          </div>
 
-            <div>
-              <div className="product-image">
-                <img src={productDetails.media} />
-              </div>
+          <div className="product-pricing">
+            <div className="product-pricing__price">{productDetails.currencySign}{productDetails.priceNow}</div>
+            {guaranteeServices.length ? _guaranteeServices : false}
+          </div>
 
-              <div className="product-pricing">
-                <p>{productDetails.currencySign}{productDetails.priceNow}</p>
-              </div>
+          <div className="product-information">
+            <h3>Product information</h3>
+            <div className="product-information__product-html" dangerouslySetInnerHTML={createMarkup(productDetails.details && productDetails.details.productInformation)} />
+            <h4>Product code: 34234234</h4>
 
-              <div className="product-description">
-                <p>{productDetails.details ? productDetails.details.productInformation : false}</p>
-              </div>
+            <h3 className="product-information__specs-heading">Product specification</h3>
+            <div className="product-specification">
+              {productSpecs && productSpecs.length ? _productSpecs : false}
             </div>
-          
+          </div>
         </section>
       </div>
     );
