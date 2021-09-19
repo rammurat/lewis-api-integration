@@ -36,8 +36,6 @@ class ProductDetails extends Component {
       return {__html: _html};
     }
 
-    console.log(guaranteeServices);
-
     return (
       <div className='pdp-page-cnt'>
         <div className="pdp-page-cnt__heading">
